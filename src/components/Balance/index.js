@@ -1,5 +1,7 @@
 import React from 'react'
 import { StyleSheet, Text, View, Dimensions } from 'react-native'
+import { COLOR_PRIMARY } from '../../utils/constant'
+import ButtonIcons from '../ButtonIcons'
 
 const Balance = () => {
     return (
@@ -16,6 +18,7 @@ const Balance = () => {
             </View>
 
             <View style={styles.buttonAct}>
+                <ButtonIcons />
 
             </View>
         </View>
@@ -42,7 +45,8 @@ const styles = StyleSheet.create({
         shadowRadius: 6.68,
 
         elevation: 11,
-        marginTop: - windowHeight * 0.05
+        marginTop: - windowHeight * 0.05,
+        flexDirection: 'row'
     },
     text: {
         flexDirection: 'row',
@@ -50,6 +54,26 @@ const styles = StyleSheet.create({
 
     },
     balanceInfo: {
-        width: "60%"
+        width: "65%"
+    },
+    labelBalance: {
+        fontSize: 18,
+        fontFamily: 'Comfortaa-Bold'
+    },
+    valueBalance: {
+        fontSize: 18,
+        fontFamily: 'Comfortaa-Bold'
+    },
+    labelPoint: {
+        fontSize: 13,
+        fontFamily: 'Comfortaa-Bold'
+    },
+    valuePoint: {
+        fontSize: 13,
+        fontFamily: 'Comfortaa-Bold',
+        color: COLOR_PRIMARY
+    },
+    buttonAct: {
+        marginLeft: 20
     }
 })
