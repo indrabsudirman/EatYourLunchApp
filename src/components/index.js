@@ -1,3 +1,4 @@
 import BottomNavigation from "./BottomNavigator";
+import Balance from "./Balance"
 
-export {BottomNavigation}
+export { BottomNavigation, Balance }
