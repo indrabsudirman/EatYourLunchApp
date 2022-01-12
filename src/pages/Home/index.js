@@ -1,7 +1,8 @@
 import React from 'react'
 import { Dimensions, ImageBackground, StyleSheet, Text, View } from 'react-native'
-import { ImageHeader } from '../../assets'
-import {Balance} from '../../components/'
+import { IconChicken, IconCoffee, IconVegetables, ImageHeader } from '../../assets'
+import { Balance } from '../../components/'
+import ButtonIcons from '../../components/ButtonIcons'
 
 const Home = () => {
     return (
@@ -12,7 +13,18 @@ const Home = () => {
                     <Text style={styles.username}>Indra Sudirman</Text>
                 </View>
             </ImageBackground>
-            <Balance/>
+            <Balance />
+            <View style={styles.menu}>
+                <Text style={styles.label}>Our healthy menu</Text>
+                <View style={styles.iconMenu}>
+                    <ButtonIcons title="Rice" type="menu" />
+                    <ButtonIcons title="Vegetables" type="menu" />
+                    <ButtonIcons title="Chicken" type="menu" />
+                    <ButtonIcons title="Juice" type="menu" />
+                    <ButtonIcons title="Coffee" type="menu" />
+                    <ButtonIcons title="Mineral Water" type="menu" />
+                </View>
+            </View>
         </View>
     )
 }
@@ -42,5 +54,19 @@ const styles = StyleSheet.create({
     username: {
         fontSize: 22,
         fontFamily: 'Comfortaa-Bold'
+    },
+    menu: {
+        paddingLeft: 30,
+        paddingTop: 15
+    },
+    label: {
+        fontSize: 18,
+        fontFamily: 'Comfortaa-Bold'
+    },
+    iconMenu: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginTop: 15,
+        flexWrap: 'wrap'
     }
 })

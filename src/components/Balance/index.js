@@ -2,6 +2,7 @@ import React from 'react'
 import { StyleSheet, Text, View, Dimensions } from 'react-native'
 import { COLOR_PRIMARY } from '../../utils/constant'
 import ButtonIcons from '../ButtonIcons'
+import Gap from '../Gap'
 
 const Balance = () => {
     return (
@@ -19,6 +20,7 @@ const Balance = () => {
 
             <View style={styles.buttonAct}>
                 <ButtonIcons title="Top Up" />
+                <Gap width={10} />
 
             </View>
         </View>
