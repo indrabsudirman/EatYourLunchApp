@@ -18,7 +18,7 @@ const Balance = () => {
             </View>
 
             <View style={styles.buttonAct}>
-                <ButtonIcons />
+                <ButtonIcons title="Top Up" />
 
             </View>
         </View>
@@ -50,7 +50,8 @@ const styles = StyleSheet.create({
     },
     text: {
         flexDirection: 'row',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        padding: 7
 
     },
     balanceInfo: {

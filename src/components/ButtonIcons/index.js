@@ -1,10 +1,19 @@
 import React from 'react'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { IconTopUpBalance } from '../../assets'
 
-const ButtonIcons = () => {
+const ButtonIcons = ({ title }) => {
+
+    const Icon = () => {
+        if (title === "Top Up") return <IconTopUpBalance />
+    }
+
     return (
         <TouchableOpacity>
-            <Text>Button</Text>
+            <View>
+                <Icon />
+                <Text style = {styles.add_balance}>{title}</Text>
+            </View>
 
         </TouchableOpacity>
     )
@@ -12,4 +21,9 @@ const ButtonIcons = () => {
 
 export default ButtonIcons
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    add_balance: {
+        fontSize: 14,
+        textAlign: 'center'
+    }
+})
