@@ -4,18 +4,19 @@
 
 اَلسَّلاَمُ عَلَيْكُمْ وَرَحْمَةُ اللهِ وَبَرَكَاتُهُ
 
+
 Terima kasih sebelumnya untuk PT Himalaya Indo Karya, atas kesempatannya untuk saya mengikuti
 **Challange Test membuat Aplikasi Android dengan React Native**. Saya sebelumnya tidak pernah coba React Native jadi 
 mempunyai kesempatan untuk mencoba dan belajar React Native sangat menyenangkan sekali.
 
 Aplikasi yang saya buat ini, masih belum jadi sama sekali. Saya baru berhasil membuat UI untuk SplashScreen dan halaman utama
-**karena waktu 5 hari ini sangat sedikit sekali untuk saya gunakan dalam membuat aplikasi React Native.**
+**karena waktu 5 hari ini, sangat sedikit sekali untuk saya gunakan dalam membuat aplikasi React Native disamping rutinitas saya sebagai staff di sekolah yang tidak berkaitan dengan coding.** 
 
 Diawal-awal saya mendapat kendala setting environment React Native dan beberapa kali salah install plugin yang **Expo**.
 Tapi sekarang Alhamdulillah sudah mulai mengerti, sudah mengerti juga membaca beberapa error di React native. Saya juga jadi belajar Figma (file `svg`) untuk mendesain awal UI saya.
 
 Jika saya masih diberikan kesempatan untuk join di PT Himalaya Indo Karya untuk Posisi QA saya sangat bersedia, 
-karena saya akan banyak dapat belajar ilmu baru di dunia IT jika dapat join di PT Himalaya Indo Karya.
+karena saya akan banyak dapat belajar ilmu baru di dunia IT jika dapat join di PT Himalaya Indo Karya. InsyaAllah saya akan total dan focus dengan pekerjaan saya nanti.
 
 Berikut ini screenshot EatYourLunchApp yang sudah saya buat :
 
