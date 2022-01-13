@@ -41,3 +41,18 @@ Demikian pengantar saya di `readme.md` ini, atas kesempatannya saya sampaikan te
 Best regards,
 
 Indra Bayu Sudirman
+
+Credit icons:
+
+1. *[Logo](https://www.svgrepo.com/svg/83741/restaurant)*.
+2. *[Home](https://www.svgrepo.com/svg/30556/home)*.
+3. *[Account](https://www.svgrepo.com/svg/345418/account-circle)*.
+4. *[Order](https://www.svgrepo.com/svg/47610/delivery)*.
+5. *[Top Up](https://www.svgrepo.com/svg/250287/money-cash)*.
+6. *[Rp simbol](https://www.svgrepo.com/svg/36951/indonesian-rupiah)*.
+7. *[Vegetables](https://www.svgrepo.com/svg/295450/vegetables-diet)*.
+8. *[Coffee](https://www.svgrepo.com/svg/9714/hot-drink)*.
+9. *[Juice](https://www.svgrepo.com/svg/265557/juice)*.
+10. *[MIneral Water](https://www.svgrepo.com/svg/10231/water)*.
+11. *[Chicken](https://www.svgrepo.com/svg/148041/chicken)*.
+12. *[Rice](https://www.svgrepo.com/svg/215626/rice)*.
