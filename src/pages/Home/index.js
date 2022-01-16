@@ -22,7 +22,7 @@ const Home = () => {
                     <ButtonIcons title="Chicken" type="menu" />
                     <ButtonIcons title="Juice" type="menu" />
                     <ButtonIcons title="Coffee" type="menu" />
-                    <ButtonIcons title="Mineral Water" type="menu" />
+                    <ButtonIcons title="Water" type="menu" />
                 </View>
             </View>
         </View>
