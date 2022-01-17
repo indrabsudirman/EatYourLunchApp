@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, ScrollView } from 'react-native'
 import { LogoOrange } from '../../assets'
 import { COLOR_BLACK, COLOR_PRIMARY, COLOR_WHITE } from '../../utils/constant'
 
@@ -9,18 +9,21 @@ const SignUp = () => {
             <View style={styles.topView}>
                 <Image style={styles.image} source={LogoOrange}></Image>
             </View>
-            <View style={styles.bottomView}>
+            <ScrollView style={styles.bottomView}>
                 <Text style={styles.headingText}>
                     Sign Up
                 </Text>
                 <View style={styles.formView}>
-                    <TextInput placeholder='Email address*' placeholderTextColor={COLOR_BLACK} style={styles.textInput} />
+                    <TextInput placeholder='Full Name*' placeholderTextColor={COLOR_BLACK} style={styles.textInput} />
+                    <TextInput placeholder='Email address*' placeholderTextColor={COLOR_BLACK} autoCapitalize='none' style={styles.textInput} />
+                    <TextInput placeholder='Mobile*' placeholderTextColor={COLOR_BLACK} style={styles.textInput} />
                     <TextInput placeholder='Password*' secureTextEntry={true} placeholderTextColor={COLOR_BLACK} style={styles.textInput} />
+                    <TextInput placeholder='Confirm Password*' secureTextEntry={true} placeholderTextColor={COLOR_BLACK} style={styles.textInput} />
                     <TouchableOpacity style={styles.button}>
                         <Text style={styles.buttonText}>Sign Up</Text>
                     </TouchableOpacity>
                 </View>
-            </View>
+            </ScrollView>
         </View>
     )
 }
