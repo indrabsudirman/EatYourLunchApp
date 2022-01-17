@@ -24,6 +24,14 @@ Berikut ini screenshot EatYourLunchApp yang sudah saya buat :
 
 <img src="https://github.com/indrabsudirman/EatYourLunchApp/blob/main/splashscreen.png" width="100%">
 
+## Login
+
+<img src="https://github.com/indrabsudirman/EatYourLunchApp/blob/main/login.png" width="100%">
+
+## Sign Up
+
+<img src="https://github.com/indrabsudirman/EatYourLunchApp/blob/main/sign%20up.png" width="100%">
+
 ## Home Menu
 
 <img src="https://github.com/indrabsudirman/EatYourLunchApp/blob/main/main%20menu.png" width="100%">
