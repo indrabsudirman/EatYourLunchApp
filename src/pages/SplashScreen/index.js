@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { StyleSheet, Text, View, ImageBackground, Image } from 'react-native'
-import { SplashScreen, Logo } from '../../assets'
+import { SplashScreen, LogoSplashScreen } from '../../assets'
 
 const Splash = ({ navigation }) => {
 
@@ -12,7 +12,7 @@ const Splash = ({ navigation }) => {
 
     return (
         <ImageBackground source={SplashScreen} style={styles.background}>
-            <Image source={Logo} style={styles.logo} />
+            <Image source={LogoSplashScreen} style={styles.logo} />
         </ImageBackground>
     )
 }
@@ -26,7 +26,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     logo: {
-        width: 338,
-        height: 255
+        width: 318,
+        height: 255,
+        resizeMode: 'contain'
     }
 })
