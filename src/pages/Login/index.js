@@ -19,12 +19,38 @@ const Login = () => {
                 <View style={styles.action}>
                     <FontAwesome
                         name='user-o'
-                        color= '#05375a'
+                        color='#05375a'
                         size={20}
                     />
                     <TextInput
-                     placeholder='Email'
-                     style={styles.textInput}/>
+                        placeholder='Email'
+                        style={styles.textInput}
+                        autoCapitalize='none' />
+                    <Feather
+                        name='check-circle'
+                        color='green'
+                        size={20} />
+                </View>
+
+                <Text style={[styles.textFooter,
+                {
+                    marginTop: 35
+                }]}>Password</Text>
+                <View style={styles.action}>
+                    <FontAwesome
+                        name='lock'
+                        color='#05375a'
+                        size={20}
+                    />
+                    <TextInput
+                        placeholder='Password'
+                        secureTextEntry={true}
+                        style={styles.textInput}
+                        autoCapitalize='none' />
+                    <Feather
+                        name='eye-off'
+                        color='grey'
+                        size={20} />
                 </View>
             </View>
         </View>
@@ -74,6 +100,7 @@ const styles = StyleSheet.create({
     },
     textInput: {
         flex: 1,
+        marginTop: -12,
         paddingLeft: 10,
         color: COLOR_BLACK
     },
