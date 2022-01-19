@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions, TextInput } from 'react-native'
+import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions, TextInput, StatusBar } from 'react-native'
 import { LogoSignIn } from '../../assets'
 import { COLOR_BLACK, COLOR_PRIMARY, COLOR_WHITE } from '../../utils/constant'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
@@ -8,13 +8,69 @@ import * as Animatable from 'react-native-animatable'
 import LinearGradient from 'react-native-linear-gradient'
 
 
-const Login = () => {
+const Login = ({ navigation }) => {
+
+
+    const [data, setData] = React.useState({
+        email: '',
+        password: '',
+        checkTextInputChange: false,
+        secureTextEntry: true
+    })
+
+    const textInputChange = (val) => {
+        if (val.trim().length >= 4) {
+            setData({
+                ...data,
+                username: val,
+                checkTextInputChange: true,
+                isValidUser: true
+            })
+        } else {
+            setData({
+                ...data,
+                username: val,
+                checkTextInputChange: false,
+                isValidUser: false
+            })
+        }
+    }
+
+    const handlePasswordChange = (val) => {
+        if (val.trim().length >= 8) {
+            setData({
+                ...data,
+                password: val,
+                isValidPassword: true
+            })
+        } else {
+            setData({
+                ...data,
+                password: val,
+                isValidPassword: false
+            })
+        }
+    }
+
+    const updateSecureTextEntry = () => {
+        setData({
+            ...setData,
+            secureTextEntry: !data.secureTextEntry
+        })
+    }
+
     return (
         <View style={styles.container}>
+            <StatusBar
+            backgroundColor={COLOR_PRIMARY}
+            barStyle='light-content'/>
             <View style={styles.header}>
                 <Image style={styles.image} source={LogoSignIn}></Image>
             </View>
-            <View style={styles.footer}>
+            <Animatable.View
+                animation="fadeInUpBig"
+                style={styles.footer}
+            >
                 <Text style={styles.textFooter}>Email</Text>
                 <View style={styles.action}>
                     <FontAwesome
@@ -25,11 +81,19 @@ const Login = () => {
                     <TextInput
                         placeholder='Email'
                         style={styles.textInput}
-                        autoCapitalize='none' />
-                    <Feather
-                        name='check-circle'
-                        color='green'
-                        size={20} />
+                        autoCapitalize='none'
+                        onChangeText={(val) => textInputChange(val)}
+                    />
+                    {data.checkTextInputChange ?
+                        <Animatable.View
+                            animation="bounceIn">
+                            <Feather
+                                name='check-circle'
+                                color='green'
+                                size={20} />
+                        </Animatable.View>
+
+                        : null}
                 </View>
 
                 <Text style={[styles.textFooter,
@@ -37,22 +101,64 @@ const Login = () => {
                     marginTop: 35
                 }]}>Password</Text>
                 <View style={styles.action}>
-                    <FontAwesome
+                    <Feather
                         name='lock'
                         color='#05375a'
                         size={20}
                     />
                     <TextInput
                         placeholder='Password'
-                        secureTextEntry={true}
+                        secureTextEntry={data.secureTextEntry ? true : false}
                         style={styles.textInput}
-                        autoCapitalize='none' />
-                    <Feather
-                        name='eye-off'
-                        color='grey'
-                        size={20} />
+                        autoCapitalize='none'
+                        onChangeText={(val) => handlePasswordChange(val)}
+                    />
+                    <TouchableOpacity
+                        onPress={updateSecureTextEntry}
+                    >
+                        {data.secureTextEntry ?
+                            <Feather
+                                name='eye-off'
+                                color='grey'
+                                size={20} />
+                            :
+                            <Feather
+                                name='eye'
+                                color='green'
+                                size={20} />
+                        }
+
+                    </TouchableOpacity>
                 </View>
-            </View>
+
+                <View style={styles.button}>
+                    <TouchableOpacity
+                        style={styles.signIn}>
+                        <LinearGradient
+                            colors={['#FAB836', '#DE9910']}
+                            style={styles.signIn}>
+                            <Text style={[styles.textSign, { color: '#ffffff' }]}>Login</Text>
+                        </LinearGradient>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate('SignUp')}
+                        style={[styles.signIn, {
+                            borderColor: '#DE9910',
+                            borderWidth: 1,
+                            marginTop: 15
+                        }]}>
+                        <Text style={[styles.textSign,
+                        { color: '#DE9910' }]}>
+                            Sign Up
+                        </Text>
+
+                    </TouchableOpacity>
+
+
+                </View>
+
+            </Animatable.View>
         </View>
     )
 }
