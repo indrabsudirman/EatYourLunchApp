@@ -21,7 +21,7 @@ const Login = ({ navigation }) => {
     })
 
     const textInputChange = (val) => {
-        if( val.length !== 0 ) {
+        if (val.length !== 0) {
             setData({
                 ...data,
                 username: val,
@@ -67,8 +67,8 @@ const Login = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <StatusBar
-            backgroundColor={COLOR_PRIMARY}
-            barStyle='light-content'/>
+                backgroundColor={COLOR_PRIMARY}
+                barStyle='light-content' />
             <View style={styles.header}>
                 <Image style={styles.image} source={LogoSignIn}></Image>
             </View>
@@ -77,136 +77,136 @@ const Login = ({ navigation }) => {
                 style={styles.footer}
             >
                 <ScrollView>
-                <Text style={styles.textFooter}>Email</Text>
-                <View style={styles.action}>
-                    <FontAwesome
-                        name='user-o'
-                        color='#05375a'
-                        size={20}
-                    />
-                    <TextInput
-                        placeholder='Email'
-                        style={styles.textInput}
-                        autoCapitalize='none'
-                        onChangeText={(val) => textInputChange(val)}
-                    />
-                    {data.checkTextInputChange ?
-                        <Animatable.View
-                            animation="bounceIn">
-                            <Feather
-                                name='check-circle'
-                                color='green'
-                                size={20} />
-                        </Animatable.View>
+                    <Text style={styles.textFooter}>Email</Text>
+                    <View style={styles.action}>
+                        <FontAwesome
+                            name='user-o'
+                            color='#05375a'
+                            size={20}
+                        />
+                        <TextInput
+                            placeholder='Email'
+                            style={styles.textInput}
+                            autoCapitalize='none'
+                            onChangeText={(val) => textInputChange(val)}
+                        />
+                        {data.checkTextInputChange ?
+                            <Animatable.View
+                                animation="bounceIn">
+                                <Feather
+                                    name='check-circle'
+                                    color='green'
+                                    size={20} />
+                            </Animatable.View>
 
-                        : null}
-                </View>
+                            : null}
+                    </View>
 
-                <Text style={[styles.textFooter,
-                {
-                    marginTop: 35
-                }]}>Password</Text>
-                <View style={styles.action}>
-                    <Feather
-                        name='lock'
-                        color='#05375a'
-                        size={20}
-                    />
-                    <TextInput
-                        placeholder='Password'
-                        secureTextEntry={data.secureTextEntry ? true : false}
-                        style={styles.textInput}
-                        autoCapitalize='none'
-                        onChangeText={(val) => handlePasswordChange(val)}
-                    />
-                    <TouchableOpacity
-                        onPress={updateSecureTextEntry}
-                    >
-                        {data.secureTextEntry ?
-                            <Feather
-                                name='eye-off'
-                                color='grey'
-                                size={20} />
-                            :
-                            <Feather
-                                name='eye'
-                                color='green'
-                                size={20} />
-                        }
+                    <Text style={[styles.textFooter,
+                    {
+                        marginTop: 35
+                    }]}>Password</Text>
+                    <View style={styles.action}>
+                        <Feather
+                            name='lock'
+                            color='#05375a'
+                            size={20}
+                        />
+                        <TextInput
+                            placeholder='Password'
+                            secureTextEntry={data.secureTextEntry ? true : false}
+                            style={styles.textInput}
+                            autoCapitalize='none'
+                            onChangeText={(val) => handlePasswordChange(val)}
+                        />
+                        <TouchableOpacity
+                            onPress={updateSecureTextEntry}
+                        >
+                            {data.secureTextEntry ?
+                                <Feather
+                                    name='eye-off'
+                                    color='grey'
+                                    size={20} />
+                                :
+                                <Feather
+                                    name='eye'
+                                    color='green'
+                                    size={20} />
+                            }
 
-                    </TouchableOpacity>
-                </View>
+                        </TouchableOpacity>
+                    </View>
 
-                <Text style={[styles.textFooter,
-                {
-                    marginTop: 35
-                }]}>Confirm Password</Text>
-                <View style={styles.action}>
-                    <Feather
-                        name='lock'
-                        color='#05375a'
-                        size={20}
-                    />
-                    <TextInput
-                        placeholder='Confirm Password'
-                        secureTextEntry={data.confirmSecureTextEntry ? true : false}
-                        style={styles.textInput}
-                        autoCapitalize='none'
-                        onChangeText={(val) => handleConfirmPasswordChange(val)}
-                    />
-                    <TouchableOpacity
-                        onPress={updateConfirmSecureTextEntry}
-                    >
-                        {data.confirmSecureTextEntry ?
-                            <Feather
-                                name='eye-off'
-                                color='grey'
-                                size={20} />
-                            :
-                            <Feather
-                                name='eye'
-                                color='green'
-                                size={20} />
-                        }
+                    <Text style={[styles.textFooter,
+                    {
+                        marginTop: 35
+                    }]}>Confirm Password</Text>
+                    <View style={styles.action}>
+                        <Feather
+                            name='lock'
+                            color='#05375a'
+                            size={20}
+                        />
+                        <TextInput
+                            placeholder='Confirm Password'
+                            secureTextEntry={data.confirmSecureTextEntry ? true : false}
+                            style={styles.textInput}
+                            autoCapitalize='none'
+                            onChangeText={(val) => handleConfirmPasswordChange(val)}
+                        />
+                        <TouchableOpacity
+                            onPress={updateConfirmSecureTextEntry}
+                        >
+                            {data.confirmSecureTextEntry ?
+                                <Feather
+                                    name='eye-off'
+                                    color='grey'
+                                    size={20} />
+                                :
+                                <Feather
+                                    name='eye'
+                                    color='green'
+                                    size={20} />
+                            }
 
-                    </TouchableOpacity>
-                </View>
+                        </TouchableOpacity>
+                    </View>
 
-                <View style={styles.textPrivate}>
-                <Text style={styles.color_textPrivate}>
-                    By signing up you agree to our
-                </Text>
-                <Text style={[styles.color_textPrivate, {fontWeight: 'bold'}]}>{" "}Terms of service</Text>
-                <Text style={styles.color_textPrivate}>{" "}and</Text>
-                <Text style={[styles.color_textPrivate, {fontWeight: 'bold'}]}>{" "}Privacy policy</Text>
-            </View>
-
-                <View style={styles.button}>
-                    <TouchableOpacity
-                        style={styles.signIn}>
-                        <LinearGradient
-                            colors={['#FAB836', '#DE9910']}
-                            style={styles.signIn}>
-                            <Text style={[styles.textSign, { color: '#ffffff' }]}>Sign Up</Text>
-                        </LinearGradient>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity
-                        onPress={() => navigation.goBack()}
-                        style={[styles.signIn, {
-                            borderColor: '#DE9910',
-                            borderWidth: 1,
-                            marginTop: 15
-                        }]}>
-                        <Text style={[styles.textSign,
-                        { color: '#DE9910' }]}>
-                            Login
+                    <View style={styles.textPrivate}>
+                        <Text style={styles.color_textPrivate}>
+                            By signing up you agree to our
                         </Text>
+                        <Text style={[styles.color_textPrivate, { fontWeight: 'bold' }]}>{" "}Terms of service</Text>
+                        <Text style={styles.color_textPrivate}>{" "}and</Text>
+                        <Text style={[styles.color_textPrivate, { fontWeight: 'bold' }]}>{" "}Privacy policy.</Text>
+                    </View>
 
-                    </TouchableOpacity>
+                    <View style={styles.button}>
+                        <TouchableOpacity
+                            style={styles.signIn}>
+                            <LinearGradient
+                                colors={['#FAB836', '#DE9910']}
+                                style={styles.signIn}>
+                                <Text style={[styles.textSign, { color: '#ffffff' }]}>Sign Up</Text>
+                            </LinearGradient>
+                        </TouchableOpacity>
+
+                        <TouchableOpacity
+                            onPress={() => navigation.goBack()}
+                            style={[styles.signIn, {
+                                borderColor: '#DE9910',
+                                borderWidth: 1,
+                                marginTop: 15
+                            }]}>
+                            <Text style={[styles.textSign,
+                            { color: '#DE9910' }]}>
+                                Login
+                            </Text>
+
+                        </TouchableOpacity>
 
 
-                </View>
+                    </View>
                 </ScrollView>
 
             </Animatable.View>
