@@ -12,10 +12,12 @@ const Login = ({ navigation }) => {
 
 
     const [data, setData] = React.useState({
-        email: '',
+        username: '',
         password: '',
         checkTextInputChange: false,
-        secureTextEntry: true
+        secureTextEntry: true,
+        isValidUser: true,
+        isValidPassword: true
     })
 
     const textInputChange = (val) => {
@@ -59,11 +61,29 @@ const Login = ({ navigation }) => {
         })
     }
 
+    const handleValidUser = (val) => {
+        if (val.trim().length >= 4) {
+            setData({
+                ...data,
+                isValidUser: true
+            })
+        } else {
+            setData({
+                ...data,
+                isValidUser: false
+            })
+        }
+    }
+
+    const loginHandle = (username, password) => {
+        signIn(username, password)
+    }
+
     return (
         <View style={styles.container}>
             <StatusBar
-            backgroundColor={COLOR_PRIMARY}
-            barStyle='light-content'/>
+                backgroundColor={COLOR_PRIMARY}
+                barStyle='light-content' />
             <View style={styles.header}>
                 <Image style={styles.image} source={LogoSignIn}></Image>
             </View>
@@ -83,6 +103,7 @@ const Login = ({ navigation }) => {
                         style={styles.textInput}
                         autoCapitalize='none'
                         onChangeText={(val) => textInputChange(val)}
+                        onEndEditing={(e) => handleValidUser(e.nativeEvent.text)}
                     />
                     {data.checkTextInputChange ?
                         <Animatable.View
@@ -95,6 +116,13 @@ const Login = ({ navigation }) => {
 
                         : null}
                 </View>
+                {data.isValidUser ? null :
+                    <Animatable.View animation="fadeInLeft" duration={500}>
+                        <Text style={styles.errorMessage}>Please fill valid email.</Text>
+                    </Animatable.View>
+                }
+
+
 
                 <Text style={[styles.textFooter,
                 {
@@ -130,6 +158,18 @@ const Login = ({ navigation }) => {
 
                     </TouchableOpacity>
                 </View>
+                {data.isValidPassword ? null :
+                    <Animatable.View animation="fadeInLeft" duration={500}>
+                        <Text style={styles.errorMessage}>Password must be 8 characters long.</Text>
+                    </Animatable.View>
+                }
+
+
+                <TouchableOpacity>
+                    <Text style={{ color: '#DE9910', marginTop: 15, fontWeight: 'bold' }}>
+                        Forget password?
+                    </Text>
+                </TouchableOpacity>
 
                 <View style={styles.button}>
                     <TouchableOpacity
@@ -224,5 +264,9 @@ const styles = StyleSheet.create({
     textSign: {
         fontSize: 18,
         fontWeight: 'bold'
+    },
+    errorMessage: {
+        color: '#FF0000',
+        fontSize: 14
     }
 })
