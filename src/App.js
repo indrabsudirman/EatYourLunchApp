@@ -7,6 +7,12 @@ import Router from './router'
 
 const App = () => {
 
+  const initialLoginState = {
+    isLoading: true,
+    userName: null,
+    userToken: null,
+  };
+
 
   return (
     <NavigationContainer>

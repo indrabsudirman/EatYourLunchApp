@@ -1,11 +1,12 @@
 import React from 'react'
-import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions, TextInput, StatusBar } from 'react-native'
+import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions, TextInput, StatusBar, Alert } from 'react-native'
 import { LogoSignIn } from '../../assets'
 import { COLOR_BLACK, COLOR_PRIMARY, COLOR_WHITE } from '../../utils/constant'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import Feather from 'react-native-vector-icons/Feather'
 import * as Animatable from 'react-native-animatable'
 import LinearGradient from 'react-native-linear-gradient'
+import User from '../../model/user'
 
 
 const Login = ({ navigation }) => {
@@ -75,8 +76,32 @@ const Login = ({ navigation }) => {
         }
     }
 
-    const loginHandle = (username, password) => {
-        signIn(username, password)
+    const loginHandle = (email, password) => {
+        
+
+        const foundUser = User.filter(item => {
+            return email == item.email && password == item.password
+        })
+
+        if (data.email.length === 0 || data.password.length === 0) {
+            Alert.alert('Wrong input!', 'Email or password field cannot be empty.', [
+                {Text: 'Ok'}
+            ])
+            return
+        }
+
+
+
+        if (foundUser.length == 0) {
+            Alert.alert('Invalid email', 'Email or Password is incorrect!', [
+            {text: 'Ok'}
+        ])
+        console.log("Press" + foundUser.length);
+        return
+        }
+
+        signIn(foundUser)
+        
     }
 
     return (
@@ -173,7 +198,8 @@ const Login = ({ navigation }) => {
 
                 <View style={styles.button}>
                     <TouchableOpacity
-                        style={styles.signIn}>
+                        style={styles.signIn}
+                        onPress={() => {loginHandle (data.email, data.password)}}>
                         <LinearGradient
                             colors={['#FAB836', '#DE9910']}
                             style={styles.signIn}>
