@@ -18,36 +18,60 @@ const Login = ({ navigation }) => {
         checkTextInputChange: false,
         secureTextEntry: true,
         confirmSecureTextEntry: true,
+        isValidUser: true,
+        isValidPassword: true,
+        isConfirmValidPassword: true
     })
 
     const textInputChange = (val) => {
-        if (val.length !== 0) {
+        if (val.trim().length >= 4) {
             setData({
                 ...data,
-                username: val,
-                checkTextInputChange: true
+                email: val,
+                checkTextInputChange: true,
+                isValidUser: true
             });
         } else {
             setData({
                 ...data,
-                username: val,
-                checkTextInputChange: false
+                email: val,
+                checkTextInputChange: false,
+                isValidUser: false
             });
         }
     }
 
     const handlePasswordChange = (val) => {
-        setData({
-            ...data,
-            password: val
-        });
+        if (val.trim().length >= 8) {
+            setData({
+                ...data,
+                password: val,
+                isValidPassword: true
+            })
+        } else {
+            setData({
+                ...data,
+                password: val,
+                isValidPassword: false
+            })
+        }
+
     }
 
     const handleConfirmPasswordChange = (val) => {
-        setData({
-            ...data,
-            confirmPassword: val
-        });
+        if (val.trim().length >= 8) {
+            setData({
+                ...data,
+                password: val,
+                isConfirmValidPassword: true
+            })
+        } else {
+            setData({
+                ...data,
+                password: val,
+                isConfirmValidPassword: false
+            })
+        }
     }
 
     const updateSecureTextEntry = () => {
@@ -62,6 +86,20 @@ const Login = ({ navigation }) => {
             ...data,
             confirmSecureTextEntry: !data.confirmSecureTextEntry
         });
+    }
+
+    const handleValidUser = (val) => {
+        if (val.trim().length >= 4) {
+            setData({
+                ...data,
+                isValidUser: true
+            })
+        } else {
+            setData({
+                ...data,
+                isValidUser: false
+            })
+        }
     }
 
     return (
@@ -89,6 +127,7 @@ const Login = ({ navigation }) => {
                             style={styles.textInput}
                             autoCapitalize='none'
                             onChangeText={(val) => textInputChange(val)}
+                            onEndEditing={(e) => handleValidUser(e.nativeEvent.text)}
                         />
                         {data.checkTextInputChange ?
                             <Animatable.View
@@ -101,6 +140,11 @@ const Login = ({ navigation }) => {
 
                             : null}
                     </View>
+
+                    {data.isValidUser ? null :
+                        <Animatable.View animation='fadeInLeft' duration={500}>
+                            <Text style={styles.errorMessage}>Please fill valid email.</Text>
+                        </Animatable.View>}
 
                     <Text style={[styles.textFooter,
                     {
@@ -137,6 +181,12 @@ const Login = ({ navigation }) => {
                         </TouchableOpacity>
                     </View>
 
+                    {data.isValidPassword ? null :
+                        <Animatable.View animation='fadeInLeft' duration={500}>
+                            <Text style={styles.errorMessage}>Password must be 8 characters long.</Text>
+                        </Animatable.View>
+                    }
+
                     <Text style={[styles.textFooter,
                     {
                         marginTop: 35
@@ -171,6 +221,12 @@ const Login = ({ navigation }) => {
 
                         </TouchableOpacity>
                     </View>
+
+                    {data.isConfirmValidPassword ? null :
+                        <Animatable.View animation='fadeInLeft' duration={500}>
+                            <Text style={styles.errorMessage}>Password must be 8 characters long.</Text>
+                        </Animatable.View>
+                    }
 
                     <View style={styles.textPrivate}>
                         <Text style={styles.color_textPrivate}>
@@ -283,5 +339,9 @@ const styles = StyleSheet.create({
     },
     color_textPrivate: {
         color: 'grey'
+    },
+    errorMessage: {
+        color: '#FF0000',
+        fontSize: 14
     }
 })

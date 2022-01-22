@@ -12,7 +12,7 @@ const Login = ({ navigation }) => {
 
 
     const [data, setData] = React.useState({
-        username: '',
+        email: '',
         password: '',
         checkTextInputChange: false,
         secureTextEntry: true,
@@ -24,14 +24,14 @@ const Login = ({ navigation }) => {
         if (val.trim().length >= 4) {
             setData({
                 ...data,
-                username: val,
+                email: val,
                 checkTextInputChange: true,
                 isValidUser: true
             })
         } else {
             setData({
                 ...data,
-                username: val,
+                email: val,
                 checkTextInputChange: false,
                 isValidUser: false
             })
